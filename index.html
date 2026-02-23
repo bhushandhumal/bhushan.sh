@@ -8,13 +8,21 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    gtag('config', 'G-8FE3YDW166');
+    gtag('config', 'G-TTZHCX096L');
   </script>
   
   <meta charset="UTF-8">
   <title>Bhushan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  <script>
+    const savedTheme = localStorage.getItem("theme");
+    if (
+      savedTheme === "dark" ||
+      (!savedTheme && window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
+      document.documentElement.classList.add("dark");
+    }
+  </script>
   <style>
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
@@ -22,17 +30,19 @@
       margin: 80px auto;
       padding: 0 20px;
       line-height: 1.6;
-      color: #111;
+      background: var(--bg);
+      color: var(--text);
+      transition: background 0.3s ease, color 0.3s ease;
     }
 
     a {
-      color: #111;
+      color: var(--text);
       text-decoration: none;
-      border-bottom: 1px solid #ddd;
+      border-bottom: 1px solid var(--muted);
     }
-
+    
     a:hover {
-      border-bottom-color: #111;
+      border-bottom-color: var(--text);
     }
 
     .links {
@@ -42,19 +52,63 @@
     .links p {
       margin: 8px 0;
     }
+    :root {
+      color-scheme: light dark;
+      --bg: #ffffff;
+      --text: #111827;
+      --muted: #6b7280;
+      --card: #f3f4f6;
+    }
+
+    /* Dark Mode Overrides */
+    .dark {
+      --bg: #0f172a;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --card: #1e293b;
+    }
+
+    .toggle {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: none;
+        border: 1px solid var(--muted);
+        padding: 6px 10px;
+        border-radius: 6px;
+        cursor: pointer;
+        color: var(--text);
+    }
   </style>
 </head>
 
 <body>
-  <h1>Bhushan</h1>
+  <button class="toggle" onclick="toggleTheme()">Toggle Mode</button>
+  <main>
+    <h1>Bhushan</h1>
 
-  <div class="links">
-    <p><a href="https://instagram.com/bhushandhumal" target="_blank">Instagram</a></p>
-    <!-- <p><a href="https://github.com/bhushandhumal" target="_blank">GitHub</a></p> -->
-    <!-- <p><a href="https://linkedin.com/in/bhushan-dhumal" target="_blank">LinkedIn</a></p> -->
-    <p><a href="https://x.com/MrBhushanDhumal" target="_blank">Twitter</a></p>
-    <!-- <p><a href="https://youtube.com/@bhxshn" target="_blank">YouTube</a></p>
-    <p><a href="https://leetcode.com/bhushandhumal" target="_blank">LeetCode</a></p> -->
-  </div>
+    <div class="links">
+      <p><a href="https://instagram.com/bhushandhumal" target="_blank">Instagram</a></p>
+      <!-- <p><a href="https://github.com/bhushandhumal" target="_blank">GitHub</a></p> -->
+      <!-- <p><a href="https://linkedin.com/in/bhushan-dhumal" target="_blank">LinkedIn</a></p> -->
+      <p><a href="https://x.com/MrBhushanDhumal" target="_blank">Twitter</a></p>
+      <!-- <p><a href="https://youtube.com/@bhxshn" target="_blank">YouTube</a></p>
+      <p><a href="https://leetcode.com/bhushandhumal" target="_blank">LeetCode</a></p> -->
+    </div>
+  </main>
+
+  <script>
+    function toggleTheme() {
+      const root = document.documentElement;
+  
+      root.classList.toggle("dark");
+  
+      if (root.classList.contains("dark")) {
+        localStorage.setItem("theme", "dark");
+      } else {
+        localStorage.setItem("theme", "light");
+      }
+    }
+  </script>
 </body>
 </html>
