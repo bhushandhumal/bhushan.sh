@@ -12,7 +12,7 @@
   </script>
   
   <meta charset="UTF-8">
-  <title>Bhushan Dhumal</title>
+  <title>Bhushan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script>
     const savedTheme = localStorage.getItem("theme");
@@ -71,20 +71,24 @@
     }
 
     .toggle {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        background: none;
-        border: 1px solid var(--muted);
-        padding: 6px 10px;
-        border-radius: 6px;
-        cursor: pointer;
-        color: var(--text);
-        transition: transform 0.2s ease;
+      position: fixed;
+      top: 24px;
+      right: 24px;
+      background: none;
+      border: none;
+      padding: 0;
+      font-size: 20px;
+      cursor: pointer;
+      color: var(--text);
+      transition: transform 0.2s ease, opacity 0.2s ease;
     }
-
+    
+    .toggle:hover {
+      opacity: 0.7;
+    }
+    
     .toggle:active {
-      transform: scale(0.9);
+      transform: scale(0.85);
     }
   </style>
 </head>
@@ -92,7 +96,7 @@
 <body>
   <button class="toggle" onclick="toggleTheme()"></button>
   <main>
-    <h1>Bhushan</h1>
+    <h1>Bhushan Dhumal</h1>
 
     <div class="links">
       <p><a href="https://instagram.com/bhushandhumal" target="_blank">Instagram</a></p>
